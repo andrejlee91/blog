@@ -19,7 +19,7 @@
   {
     "path": "posts/2021-01-26-dataviz-makeover-1/",
     "title": "DataViz Makeover 1",
-    "description": "A short description of the post.",
+    "description": "Resident Labour Force Statistics",
     "author": [
       {
         "name": "Andre Lee",
@@ -28,10 +28,10 @@
     ],
     "date": "2021-01-26",
     "categories": [],
-    "contents": "\r\n#DataViz Makeover 1\r\n\r\n\r\n\r\n",
+    "contents": "\r\nDataViz Makeover 1\r\n!(Question.png)\r\na) Clarity\r\n1) hello world\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-01-26T22:20:33+08:00",
-    "input_file": {}
+    "last_modified": "2021-01-27T01:23:55+08:00",
+    "input_file": "dataviz-makeover-1.utf8.md"
   },
   {
     "path": "posts/welcome/",
