@@ -3,7 +3,7 @@ title: "My First R Markdown Document"
 description: |
   A new article created using the Distill format.
 author:
-  - name: Dr. Kam Tin Seong 
+  - name: Andre Lee 
     url: https://example.com/norajones
     affiliation: School of Information Systems, SMU
     affiliation_url: https://example.com/spacelysprokets
