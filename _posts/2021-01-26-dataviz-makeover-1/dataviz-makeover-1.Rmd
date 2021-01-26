@@ -1,7 +1,7 @@
 ---
 title: "DataViz Makeover 1"
 description: |
-  A short description of the post.
+  Resident Labour Force Statistics
 author:
   - name: Andre Lee
     url: 
@@ -16,4 +16,10 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-#DataViz Makeover 1
+# DataViz Makeover 1
+
+!(Question.png)
+
+# a) Clarity 
+
+## 1)
