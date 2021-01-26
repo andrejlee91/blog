@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["dataviz-makeover-1_files/anchor-4.2.2/anchor.min.js","dataviz-makeover-1_files/bowser-1.9.3/bowser.min.js","dataviz-makeover-1_files/distill-2.2.21/template.v2.js","dataviz-makeover-1_files/jquery-1.11.3/jquery.min.js","dataviz-makeover-1_files/popper-2.6.0/popper.min.js","dataviz-makeover-1_files/tippy-6.2.7/tippy-bundle.umd.min.js","dataviz-makeover-1_files/tippy-6.2.7/tippy-light-border.css","dataviz-makeover-1_files/tippy-6.2.7/tippy.css","dataviz-makeover-1_files/tippy-6.2.7/tippy.umd.min.js","dataviz-makeover-1_files/webcomponents-2.0.0/webcomponents.js","Question.PNG"]}
+  {"type":"character","attributes":{},"value":["dataviz-makeover-1_files/anchor-4.2.2/anchor.min.js","dataviz-makeover-1_files/bowser-1.9.3/bowser.min.js","dataviz-makeover-1_files/distill-2.2.21/template.v2.js","dataviz-makeover-1_files/jquery-1.11.3/jquery.min.js","dataviz-makeover-1_files/popper-2.6.0/popper.min.js","dataviz-makeover-1_files/tippy-6.2.7/tippy-bundle.umd.min.js","dataviz-makeover-1_files/tippy-6.2.7/tippy-light-border.css","dataviz-makeover-1_files/tippy-6.2.7/tippy.css","dataviz-makeover-1_files/tippy-6.2.7/tippy.umd.min.js","dataviz-makeover-1_files/webcomponents-2.0.0/webcomponents.js","images/check_data.PNG","images/drag.png","images/first_viz.PNG","images/legend.PNG","images/measure_names.PNG","images/yellow.PNG","Question.PNG","Raw_Workforce_Data.PNG"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2100,9 +2100,76 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="d-article">
 <h1 id="dataviz-makeover-1">DataViz Makeover 1</h1>
-<p>!(Question.png)</p>
-<h1 id="a-clarity">a) Clarity</h1>
-<h2 id="hello-world">1) hello world</h2>
+<p><img src="Question.PNG" /></p>
+<h1 id="a">a)</h1>
+<h2 id="clarity">Clarity</h2>
+<h3 id="wrong-choice-of-visualization">Wrong choice of visualization:</h3>
+<p><em>Comment</em>: Age group is a categorical datatype and thus line chart may not be the best way to represent it.</p>
+<p><em>Suggestion</em>: Represent categorical datatype using bar chart instead of line chart.</p>
+<h3 id="unclear-chart-title">Unclear Chart title:</h3>
+<p><em>Comment</em>: Chart title is unclear. It says ‘Resident labour force by age’ followed by ‘Per Cent’ at the bottom, which doesn’t really help in readers’ understanding.</p>
+<p><em>Suggestion</em>: Title should mention the distinct time periods that the chart is describing. Change the title to ‘Comparison of resident labour force percentage by age group in June 2009 and June 2019’.</p>
+<h3 id="mismatch-between-statement-and-visualization">Mismatch between statement and visualization:</h3>
+<p><em>Comment</em>: The statement mentions LFPR increasing but there is no illustration or reference to LFPR in the visualisation. This serves to confuse readers since they may be wondering whether the visualisation is referring to LFPR or just resident labour force.</p>
+<p><em>Suggestion</em>: Have a separate visualisation to reference how LFPR has increased from 2009 to 2019 for the various age groups.</p>
+<h2 id="aesthetic">Aesthetic</h2>
+<h3 id="poor-choice-of-colours">Poor Choice of Colours</h3>
+<p><em>Comment</em>: The 2 colours used for 2009 and 2019 are both relatively dark and thus no visual contrast.</p>
+<p><em>Suggestion</em>: Use 2 more contrasting colours to make the distinction between both years more obvious.</p>
+<h3 id="repetitive-labelling">Repetitive Labelling</h3>
+<p><em>Comment</em>: The labelling for this graph is rather repetitive. For example, you see “June 2009” show up 3 times; 1) in the table below 2) ‘Median Age in June 2009’ at the median line 3) Labelling the line graph. Similar for “June 2019”. This makes the graph look cluttered.</p>
+<p><em>Suggestion</em>: Only have one Date label for each date rather than multiple labels for the same date.</p>
+<h3 id="no-vertical-axis">No vertical axis</h3>
+<p><em>Comment</em>: It is not clear at first sight what the height of the line graph represents.</p>
+<p><em>Suggestion</em>: Have a vertical axis on the side of the graph to show that the points on the lines stand for percentage</p>
+<h3 id="x-axis-not-labelled">x-axis not labelled</h3>
+<p><em>Comment</em>: Not everyone will immediately know that ’15-19’, ’20-24’ etc represents age groups.</p>
+<p><em>Suggestion</em>: Label the axis with ‘Age Group’</p>
+<h1 id="b">b)</h1>
+<p>-insert first chart here-</p>
+<ol type="1">
+<li><p>By switching from line chart to bar chart, categorical data of age groups is more correctly represented.</p></li>
+<li><p>By having a y-axis showing ‘Percentage of Workforce’ and labelling the bars, viewers are able to know what the heights of the bars represent. This is opposed to the current design where there is no immediate understanding visually of what the lines represent.</p></li>
+</ol>
+<p>-insert second chart here-</p>
+<h1 id="d">d)</h1>
+<h3 id="step-by-step-description-on-how-data-visualization-was-prepared">Step-by-step description on how data visualization was prepared</h3>
+<ol type="1">
+<li>Input the raw data from the given visualization into Excel</li>
+</ol>
+<center>
+<img src="Raw_Workforce_Data.PNG" title="fig:" style="width:20.0%" alt="Input Raw Data" />
+</center>
+<ol start="2" type="1">
+<li>Load dataset into Tableau. Double check that data and datatypes are correct before proceeding to make visualization.</li>
+</ol>
+<center>
+<img src="images/check_data.PNG" title="fig:" style="width:35.0%" alt="‘Check Data’" />
+</center>
+<ol start="3" type="1">
+<li>Drag ‘Age Group’ into Columns Drag ‘Jun-09’ and ‘Jun-19’ into Rows</li>
+</ol>
+<center>
+<img src="images/first_viz.PNG" style="width:70.0%" />
+</center>
+<ol start="4" type="1">
+<li><p>Drag ‘Jun-19’ into the ‘Jun-09’ y-axis on the top panel of the chart</p>
+<center>
+<p><img src="images/drag.png" style="width:70.0%" /></p>
+</center></li>
+<li><p>Edit y-axis to change max value to be 20. Change the name of axis to ‘Percentage of Workforce(%)’</p></li>
+<li><p>Drag ‘Measure Names’ from Tables to ‘Color’. This makes ‘Jun-09’ blue and ‘Jun-19’ yellow</p></li>
+<li><p>Uncheck ‘Show Header’ on the x-axis. This gets rid of the Jun-09 and Jun-19 labelling on the x-axis.</p></li>
+</ol>
+<center>
+<img src="images/yellow.PNG" style="width:70.0%" />
+</center>
+<ol start="8" type="1">
+<li>Edit Title of legend to ‘Time Period’. Edit Alias for both ‘Jun-09’ and ‘Jun-19’ to as follows to inform viewers of the median age for both time periods:
+<center>
+<img src="images/legend.PNG" style="width:30.0%" />
+</center></li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
