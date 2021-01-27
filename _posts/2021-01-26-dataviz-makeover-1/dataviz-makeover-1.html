@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["dataviz-makeover-1_files/anchor-4.2.2/anchor.min.js","dataviz-makeover-1_files/bowser-1.9.3/bowser.min.js","dataviz-makeover-1_files/distill-2.2.21/template.v2.js","dataviz-makeover-1_files/jquery-1.11.3/jquery.min.js","dataviz-makeover-1_files/popper-2.6.0/popper.min.js","dataviz-makeover-1_files/tippy-6.2.7/tippy-bundle.umd.min.js","dataviz-makeover-1_files/tippy-6.2.7/tippy-light-border.css","dataviz-makeover-1_files/tippy-6.2.7/tippy.css","dataviz-makeover-1_files/tippy-6.2.7/tippy.umd.min.js","dataviz-makeover-1_files/webcomponents-2.0.0/webcomponents.js","images/check_data.PNG","images/drag.png","images/first_viz.PNG","images/legend.PNG","images/measure_names.PNG","images/yellow.PNG","Question.PNG","Raw_Workforce_Data.PNG"]}
+  {"type":"character","attributes":{},"value":["dataviz-makeover-1_files/anchor-4.2.2/anchor.min.js","dataviz-makeover-1_files/bowser-1.9.3/bowser.min.js","dataviz-makeover-1_files/distill-2.2.21/template.v2.js","dataviz-makeover-1_files/jquery-1.11.3/jquery.min.js","dataviz-makeover-1_files/popper-2.6.0/popper.min.js","dataviz-makeover-1_files/tippy-6.2.7/tippy-bundle.umd.min.js","dataviz-makeover-1_files/tippy-6.2.7/tippy-light-border.css","dataviz-makeover-1_files/tippy-6.2.7/tippy.css","dataviz-makeover-1_files/tippy-6.2.7/tippy.umd.min.js","dataviz-makeover-1_files/webcomponents-2.0.0/webcomponents.js","images/check_data.PNG","images/check_data1.PNG","images/check_data2.PNG","images/drag.png","images/dragall.PNG","images/final.PNG","images/final2.PNG","images/finaldashboard.PNG","images/first_viz.PNG","images/legend.PNG","images/line.PNG","images/measure_names.PNG","images/midway.PNG","images/stackedbar.PNG","images/table7.PNG","images/table7_1.PNG","images/yellow.PNG","Question.PNG","Raw_Workforce_Data.PNG"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1486,10 +1486,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p><em>Suggestion</em>: Represent categorical datatype using bar chart instead of line chart.</p>
 <h3 id="unclear-chart-title">Unclear Chart title:</h3>
 <p><em>Comment</em>: Chart title is unclear. It says ‘Resident labour force by age’ followed by ‘Per Cent’ at the bottom, which doesn’t really help in readers’ understanding.</p>
-<p><em>Suggestion</em>: Title should mention the distinct time periods that the chart is describing. Change the title to ‘Comparison of resident labour force percentage by age group in June 2009 and June 2019’.</p>
+<p><em>Suggestion</em>: Title should mention the distinct time periods that the chart is describing. Change the title to ‘Comparison of resident labour force percentage by age groups from June 2009 to June 2019’.</p>
 <h3 id="mismatch-between-statement-and-visualization">Mismatch between statement and visualization:</h3>
 <p><em>Comment</em>: The statement mentions LFPR increasing but there is no illustration or reference to LFPR in the visualisation. This serves to confuse readers since they may be wondering whether the visualisation is referring to LFPR or just resident labour force.</p>
 <p><em>Suggestion</em>: Have a separate visualisation to reference how LFPR has increased from 2009 to 2019 for the various age groups.</p>
+<h3 id="chart-describes-something-that-isnt-visually-represented-causing-potential-confusion">Chart describes something that isn’t visually represented, causing potential confusion:</h3>
+<p><em>Comment</em>: The statement mentions ‘the share of the resident labour force aged 25 to 54 declined from 75% to 67%’, but there is no visualization of this at all. This creates a disconnect between the statement and visualization.</p>
+<p><em>Suggestion</em>: Bin the age groups and have 1 of them be ‘25-54’ to show this drop from 75% to 67%.</p>
 <h2 id="aesthetic">Aesthetic</h2>
 <h3 id="poor-choice-of-colours">Poor Choice of Colours</h3>
 <p><em>Comment</em>: The 2 colours used for 2009 and 2019 are both relatively dark and thus no visual contrast.</p>
@@ -1504,49 +1507,105 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p><em>Comment</em>: Not everyone will immediately know that ’15-19’, ’20-24’ etc represents age groups.</p>
 <p><em>Suggestion</em>: Label the axis with ‘Age Group’</p>
 <h1 id="b">b)</h1>
-<p>-insert first chart here-</p>
+<p>We make use of 2 charts to improve the current design and better bring out the message of the statement.</p>
+<p><strong>First Chart: Comparison of resident labour force percentage by age groups from June 2009 to June 2019</strong></p>
+<p><img src="images/final.PNG" /></p>
 <ol type="1">
-<li><p>By switching from line chart to bar chart, categorical data of age groups is more correctly represented.</p></li>
+<li><p>By binning the age groups and showing the group 25-54 specifically, viewers can now immediately visualize how the percentage of 25-54 dropped from 75% in 2009 to 67% in 2019 over the years. By switching from line chart to bar chart, categorical data of age groups is more correctly represented.</p></li>
 <li><p>By having a y-axis showing ‘Percentage of Workforce’ and labelling the bars, viewers are able to know what the heights of the bars represent. This is opposed to the current design where there is no immediate understanding visually of what the lines represent.</p></li>
 </ol>
-<p>-insert second chart here-</p>
-<h1 id="d">d)</h1>
-<h3 id="step-by-step-description-on-how-data-visualization-was-prepared">Step-by-step description on how data visualization was prepared</h3>
+<p><strong>Second Chart: Showing the increase in Labour Force Participation Rate (LFPR) from 2009 to 2019 for all age groups</strong></p>
+<p><img src="images/final2.PNG" /></p>
 <ol type="1">
-<li>Input the raw data from the given visualization into Excel</li>
+<li><p>Juxtaposing the first and second chart side by side will allow viewer to visualize what is said in the statement, that despite LFPR increasing for age group 25-54, the share of the resident labour force declined from 75% to 67%.</p></li>
+<li><p>The chart shows LFPR actually increased for all age groups from 2009 to 2019. So, the decline from 75% to 67% could also be explained by the fact that the LFPR for other age groups increased more than that of 25-54.</p></li>
+</ol>
+<h1 id="c">c)</h1>
+<p><a href="https://public.tableau.com/views/DataVizMakeover1_16117715149820/Dashboard1?:language=en&amp;:display_count=y&amp;publish=yes&amp;:origin=viz_share_link">Click for link to Tableau Public post</a></p>
+<h1 id="d">d)</h1>
+<h3 id="step-by-step-description-on-how-first-chart-was-prepared">Step-by-step description on how first chart was prepared</h3>
+<ol type="1">
+<li>Using Table 7, bin the age groups into ‘15-24’, ‘25-54’ and ‘55 &amp; Over’. Calculate the age groups’ percentage of labour force for each year.</li>
 </ol>
 <center>
-<img src="Raw_Workforce_Data.PNG" title="fig:" style="width:20.0%" alt="Input Raw Data" />
+<p><img src="images/table7.PNG" style="width:100.0%" /></p>
+</center>
+<center>
+<figure>
+<img src="images/table7_1.PNG" style="width:100.0%" alt="" /><figcaption>Table 7</figcaption>
+</figure>
 </center>
 <ol start="2" type="1">
 <li>Load dataset into Tableau. Double check that data and datatypes are correct before proceeding to make visualization.</li>
 </ol>
 <center>
-<img src="images/check_data.PNG" title="fig:" style="width:35.0%" alt="‘Check Data’" />
+<img src="images/check_data1.PNG" title="fig:" style="width:80.0%" alt="Check Data" />
 </center>
 <ol start="3" type="1">
-<li>Drag ‘Age Group’ into Columns Drag ‘Jun-09’ and ‘Jun-19’ into Rows</li>
+<li>Drag ‘Age Group’ into Columns. Drag ‘2009’ into Rows. Under ‘Show Me’, select Stacked Bar type</li>
 </ol>
 <center>
-<img src="images/first_viz.PNG" style="width:70.0%" />
+<img src="images/stackedbar.PNG" style="width:70.0%" />
 </center>
 <ol start="4" type="1">
-<li><p>Drag ‘Jun-19’ into the ‘Jun-09’ y-axis on the top panel of the chart</p>
+<li><p>Select all of 2010-2019 and drag them into the 2009 axis</p>
 <center>
-<p><img src="images/drag.png" style="width:70.0%" /></p>
+<p><img src="images/dragall.PNG" style="width:70.0%" /></p>
 </center></li>
-<li><p>Edit y-axis to change max value to be 20. Change the name of axis to ‘Percentage of Workforce(%)’</p></li>
-<li><p>Drag ‘Measure Names’ from Tables to ‘Color’. This makes ‘Jun-09’ blue and ‘Jun-19’ yellow</p></li>
-<li><p>Uncheck ‘Show Header’ on the x-axis. This gets rid of the Jun-09 and Jun-19 labelling on the x-axis.</p></li>
+<li><p>Change the name of axis to ‘Percentage of Resident Labour Force (%)’</p></li>
+<li><p>Show Labels to label each shaded area with the corresponding %.</p></li>
+<li><p>Change title to ’Comparison of resident labour force percentage by age groups in June 2009 and June 2019.</p></li>
+<li><p>Annotate the Median Age in both 2009 and 2019 with Point</p></li>
+<li><p>Final product:</p></li>
 </ol>
 <center>
-<img src="images/yellow.PNG" style="width:70.0%" />
+<img src="images/final.PNG" style="width:100.0%" />
 </center>
-<ol start="8" type="1">
-<li>Edit Title of legend to ‘Time Period’. Edit Alias for both ‘Jun-09’ and ‘Jun-19’ to as follows to inform viewers of the median age for both time periods:
+<h3 id="step-by-step-description-on-how-second-chart-was-prepared">Step-by-step description on how second chart was prepared</h3>
+<ol type="1">
+<li><p>Using Table 5, extract the data for age groups ‘15-24’, ‘25-54’, ‘55-64’, ‘65 &amp; Over’</p></li>
+<li><p>Load dataset into Tableau. Double check that data and datatypes are correct before proceeding to make visualization.</p></li>
+</ol>
 <center>
-<img src="images/legend.PNG" style="width:30.0%" />
+<img src="images/check_data2.PNG" />
+</center>
+<ol start="3" type="1">
+<li>Drag ‘Age group’ into Columns. Drag ‘2009’ into Rows. Select Line chart.
+<center>
+<img src="images/line.PNG" />
 </center></li>
+<li>Drag 2010 to 2019 into ‘Measure Values’ and remove ‘Age Group’ from Columns</li>
+</ol>
+<center>
+<img src="images/midway.PNG" />
+</center>
+<ol start="5" type="1">
+<li><p>Change y-axis Title to LFPR (%)</p></li>
+<li><p>Label the values for only 2009 and 2019 for all age groups</p></li>
+<li><p>Change title to ‘Increase in Labour Force Participation Rate (LFPR) from 2009 to 2019 for all age groups’</p></li>
+<li><p>Adjust the sequence of the legend according to the sequence the age groups appear in the chart</p></li>
+<li><p>Adjust y-axis max value to 100</p></li>
+<li><p>Final Product:</p>
+<center>
+<p><img src="images/final2.PNG" /></p>
+</center></li>
+</ol>
+<h3 id="putting-everything-into-a-dashboard">Putting everything into a dashboard</h3>
+<ol type="1">
+<li><p>Create a new dashboard</p></li>
+<li><p>Drag ‘Labour Force Pct’ (first chart) to the left side and drag ‘LFPR’ (second chart) to the right side</p></li>
+<li><p>Add a textbox at the top and type in some key observations from the visualizations</p></li>
+<li><p>Final product:</p></li>
+</ol>
+<center>
+<img src="images/finaldashboard.PNG" />
+</center>
+<h1 id="e">e)</h1>
+<h3 id="three-major-observations-revealed-by-the-data-visualisation-prepared">Three major observations revealed by the data visualisation prepared</h3>
+<ol type="1">
+<li><p>LFPR actually increased broadly across all age groups of the population.</p></li>
+<li><p>The share of the labour force aged 25-54 steadily declined over each year from 2009 to 2019, while that aged 55 &amp; over steadily increased each year from 2009 to 2019, with only the exception from 2014 to 2015.</p></li>
+<li><p>The increase in LFPR from 2009 to 2019 was sharpest for age group 65 &amp; over, increasing 11.5 percentage points from 17.2% to 28.7%. The increase in LFPR from 2009 to 2019 was gentlest for age group 25-54, increasing only 3.8 percentage points from 84.5% to 88.3%.</p></li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
