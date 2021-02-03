@@ -72,7 +72,7 @@ We make use of 2 charts to improve the current design and better bring out the m
 
 **First Chart: Comparison of resident labour force percentage by age groups from June 2009 to June 2019**
 
-![](images/final.png)
+![](images/Chart 1.png)
 
 1) By binning the age groups and showing the group 25-54 specifically, viewers can now immediately visualize how the percentage of 25-54 dropped from 75% in 2009 to 67% in 2019 over the years. By switching from line chart to bar chart, categorical data of age groups is more correctly represented. 
 
@@ -80,7 +80,7 @@ We make use of 2 charts to improve the current design and better bring out the m
 
 **Second Chart: Showing the increase in Labour Force Participation Rate (LFPR) from 2009 to 2019 for all age groups**
 
-![](images/final2.PNG)
+![](images/Chart 2.PNG)
 
 1) Juxtaposing the first and second chart side by side will allow viewer to visualize what is said in the statement, that despite 
 LFPR increasing for age group 25-54, the share of the resident labour force declined from 75% to 67%.
