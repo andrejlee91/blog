@@ -537,7 +537,7 @@ This is to generate the correct upper 95% level according to the type of respons
 
 <center>
 
-![](images/dashboardfirst.PNG)
+![](images/dashboardfirst.PNG){width=90%}
 
 </center>
 
