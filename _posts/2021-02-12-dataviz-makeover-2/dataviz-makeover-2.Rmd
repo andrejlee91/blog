@@ -1,7 +1,7 @@
 ---
 title: "DataViz Makeover 2"
 description: 
-  This DataViz Makeover will critique and improve 2 visualizations which portray the results of a study conducted to understand the willingness of the public to take COviD-19 vaccinations
+  This DataViz Makeover will critique and improve 2 visualizations which portray the results of a study conducted to understand the willingness of the public to take COVID19 vaccinations
 author:
   - name: Andre Lee
     url: 
@@ -561,6 +561,8 @@ This is to generate the correct upper 95% level according to the type of respons
 
 ![Fig 42: Create text box to direct user to filter by profiles](images/textbox.PNG)
 
+</center>
+
 8) Capitalize first letter of each profile filter group to tidy the look.
 
 9) go to the Final Error Bars sheet. To show the number of records for each country for that particular question, drag 'Number of Records' into the All tab under Marks as follows:
@@ -604,19 +606,40 @@ Final product:
 1. When asked if they would get the vaccine if it becomes available in 2021, **France is the country most against** it with 34% of respondents indicating they strongly disagree. On the other hand, **South Koreans are least against it**, with only 6% indicating they strongly disagree. 
  It is also interesting that the 3 countries with **least proportion of 'Strongly Disagree' are Asian countries**, whereas the top 3 countries with **highest proportion of 'Strongly Disagree' are all Western countries**. This could be due to cultural perceptions of vaccines.
 
-![](images/asian.PNG)
+<center>
+
+![Fig 46: Comparing countries' proportion of residents who Strongly Disagree to receiving COVID19 vaccine in 2021](images/asian.PNG){width=80%}
+
+</center>
 
 2) **Females are significantly more worried than males about the potential side effects of a vaccine**. Taking 30% as a reference point, in 11 out of the 14 countries, more than 30% of females indicated strongly agree. On the contrary, only in 2 out of the 14 countries did more than 30% of males indicate strongly agree. 
 
 This is in line with scientific evidence that females are generally more risk-averse than males.
 
-![](images/femaleworry.PNG)
+<center>
 
-![](images/maleworry.PNG)
+![Fig 47: In 11 out of 14 countries, more than 30% of Females strongly agree that they are worried about potential side effects of the vaccine](images/femaleworry.PNG)
+
+</center>
+
+<center>
+
+![Fig 48: In only 3 out of 14 countries, more than 30% of Males strongly agree that they are worried about potential side effects of the vaccine](images/maleworry.PNG)
+
+</center>
 
 3) Generally the **elderly are more worried than the young about getting COVID19**. Taking the elderly as those of above 60 years old, and the young as those up to 30 years old. Using 20% as a reference point, in 11 out of 14 countries, more than 20% of the elderly indicated strongly agreed that they are worried about getting COVID19. On the contrary, only in 4 out of the 14 countries did more than 20% of youth strongly agreed that they are worried about getting COVID19.
 
 This is probably due to the fact that there has been published statistical evidence that the elderly are more susceptible to being more adversely affected and have a higher death rate when hit by COVID19 as compared to the young, who have a much higher and faster recovery rate.
 
-![](images/elderworry.PNG)
-![](images/youthworry.PNG)
+<center>
+
+![Fig 49: In 11 out of 14 countries, more than 20% of the elderly (aged above 60) strongly agree they are worried of getting COVID19](images/elderworry.PNG)
+
+</center>
+
+<center>
+
+![Fig 50: In only 4 out of 14 countries do more than 20% of youth (aged up to 30) strongly agree they are worried of getting COviD19](images/youthworry.PNG)
+
+</center>
