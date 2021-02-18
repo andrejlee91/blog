@@ -1,11 +1,11 @@
 ---
 title: "DataViz Makeover 2"
 description: 
-  Statistics on public willingness to receive the Covid-19 vaccination across different countries
+  This DataViz Makeover will critique and improve 2 visualizations which portray the results of a study conducted to understand the willingness of the public to take COviD-19 vaccinations
 author:
   - name: Andre Lee
     url: 
-date: 02-12-2021
+date: 02-19-2021
 output:
   distill::distill_article:
     self_contained: false
@@ -387,7 +387,7 @@ We next build Dot Plot with Error Bars. For each set of filters selected by the 
 
 <center>
 
-![Fig 25: Create calculated field 'Strongly Agree Count'](images/stronglyagreecount.PNG)
+![Fig 26: Create calculated field 'Strongly Agree Count'](images/stronglyagreecount.PNG)
 
 </center>
 
@@ -397,7 +397,7 @@ This is to mark each Strongly Agree response as 1 count. Create the same fields 
 
 <center>
 
-![Fig 26: Create calculated field 'Proportion of respondents _Strongly Agree'](images/proportionsofrespondents.PNG)
+![Fig 27: Create calculated field 'Proportion of respondents _Strongly Agree'](images/proportionsofrespondents.PNG)
 
 </center>
 
@@ -407,7 +407,7 @@ This is to count the proportion of respondents which selected Strongly Agree out
 
 <center>
 
-![Fig 27: Create calculated field 'Proportion Standard Error_Strongly Agree'](images/proportionstandarderror.PNG)
+![Fig 28: Create calculated field 'Proportion Standard Error_Strongly Agree'](images/proportionstandarderror.PNG)
 
 </center>
 
@@ -417,7 +417,7 @@ This is to calculate the standard error. Create the same fields for the other 4 
 
 <center>
 
-![Fig 28: Create calculated field Z_95%](images/Z95.PNG)
+![Fig 29: Create calculated field Z_95%](images/Z95.PNG)
 
 </center>
 
@@ -427,7 +427,7 @@ This is the critical z-score for 95% confidence level
 
 <center>
 
-![Fig 29: create calculated field 'Upper 95%_Strongly Agree'](images/upper95_stronglyagree.PNG)
+![Fig 30: create calculated field 'Upper 95%_Strongly Agree'](images/upper95_stronglyagree.PNG)
 
 </center>
 
@@ -437,7 +437,7 @@ This is to calculate the upper 95% confidence level for the proportion of respon
 
 <center>
 
-![Fig 30: Create calculated field 'Lower 95%_Strongly Agree'](images/lower95_stronglyagree.PNG)
+![Fig 31: Create calculated field 'Lower 95%_Strongly Agree'](images/lower95_stronglyagree.PNG)
 
 </center>
 
@@ -445,23 +445,39 @@ This is to calculate the lower 95% confidence level for the proportion of respon
 
 7) Create Calculated Field 'Lower 95% Level' as follows:
 
-![](images/lower95level.PNG)
+<center>
+
+![Fig 32: Created calculated field 'Lower 95% Level'](images/lower95level.PNG)
+
+</center>
 
 This is to generate the correct lower 95% level according to the type of response which the user wishes to see the lower 95% level for.
 
 8) Create Calculated Field 'Upper 95% Level' as follows:
 
-![](images/upper95level.PNG)
+<center>
+
+![Fig 33; Create calculated field 'Upper 95% Level'](images/upper95level.PNG)
+
+</center>
 
 This is to generate the correct upper 95% level according to the type of response which the user wishes to see the upper 95% level for.
 
 9) Create Parameter 'Select Type of Response'. This is to select the type of response for which we wish to see the Dot Plot with Error Bars for.
 
-![](images/selecttypeofresponse.PNG)
+<center>
+
+![Fig 34: create parameter 'Select Type of Response'](images/selecttypeofresponse.PNG)
+
+</center>
 
 10) Create Calculated Field called 'Select Response Type'. This is to display the correct proportion of respondents' responses for the response type which the user selects in step 7 above.
 
-![](images/selectresponsetype.PNG)
+<center>
+
+![Fig 35: Create calculated field 'Select Response Type'](images/selectresponsetype.PNG)
+
+</center>
 
 ## Building the Dot Plot with Error Bars
 
@@ -470,7 +486,12 @@ This is to generate the correct upper 95% level according to the type of respons
 2) Drag Country to Rows
 
 3) Change Marks type to Circle. At this point chart looks as follows:
-![](images/dot1.PNG){width=80%}
+
+<center>
+
+![Fig 36: First look of Dot Plot](images/dot1.PNG){width=80%}
+
+</center>
 
 4) Drag Measure values to the 'top x-axis' and then exclude everything except the Upper 95% Level and Lower 95% Level
 
@@ -478,17 +499,33 @@ This is to generate the correct upper 95% level according to the type of respons
 
 5) Click on Measure values in the Marks tab and change Marks type to Line. This generates a squiggly line across the chart as follows:
 
-![](images/measurevaluesline.PNG)
+<center>
 
-![](images/squiggly.PNG)
+![Fig 37: Change marks type to Line](images/measurevaluesline.PNG)
 
+</center>
+
+<center>
+
+![Fig 38: Chart looks like a squiggly line initially](images/squiggly.PNG)
+
+</center>
 
 6) Drag Measure Names to Path to generate the line which represents the 95% confidence interval.
 
-![](images/measurenamespath.PNG)
+<center>
+
+![Fig 39: Drag Measure Names to Path](images/measurenamespath.PNG)
+
+</center>
 
 7) Right click x-axis and click Synchronize Axis
-![](images/sync.png)
+
+<center>
+
+![Fig 40: Synchronize Axis](images/sync.png)
+
+</center>
 
 8) Format the colour of the Dot to make it different from the colour of the Error Bars
 
@@ -497,11 +534,20 @@ This is to generate the correct upper 95% level according to the type of respons
 1) Create a new Dashboard
 
 2) Drag sheets 'Likert' and 'Final Error Bars' into the dashboard side by side. It will look as follows:
+
+<center>
+
 ![](images/dashboardfirst.PNG)
+
+</center>
 
 3) To synchronize the order of the countries on both charts, go to the Likert sheet, right click on the y-axis and select Sort. Sort by Field, where the Field Name is 'Select Response type' in Ascending order. For example, if user selects to view the Dot Plot for '1 - Strongly Disagree', both charts will be sorted with the country on the top having the least proportion of 'Strongly Disagree' and the country on the bottom having the highest proportion of 'Strongly Disagree'. 
 
-![](images/sortby.PNG)
+<center>
+
+![Fig 41: Sort order of countries by select Response Type field](images/sortby.PNG)
+
+</center>
 
 4) Move the Select Question dropdown list to the top. This is so that the entire question can be shown and not truncated.
 
@@ -511,25 +557,45 @@ This is to generate the correct upper 95% level according to the type of respons
 
 7) Create a text box to direct the user to filter to view results based on different profile combinations.
 
-![](images/textbox.PNG)
+<center>
+
+![Fig 42: Create text box to direct user to filter by profiles](images/textbox.PNG)
 
 8) Capitalize first letter of each profile filter group to tidy the look.
 
 9) go to the Final Error Bars sheet. To show the number of records for each country for that particular question, drag 'Number of Records' into the All tab under Marks as follows:
 
+<center>
+
 ![](images/sumnum.PNG)
+
+</center>
 
 10) Then edit the tooltip under the same All tab as above:
 
-![](images/tooltip.PNG)
+<center>
+
+![Fig 43: Edit tooltip](images/tooltip.PNG)
+
+</center>
 
 11) Change the title for the Dot Plot chart to as follows:
 
-![](images/dottitle.PNG)
+<center>
+
+![Fig 44: Change title for Dot Plot Chart](images/dottitle.PNG)
+
+</center>
 
 12) Add Dashboard Title 'A study to understand the willingness and perception of receiving the COVID19 vaccine across different countries'
 
+Final product:
 
+<center>
+
+![Fig 45: Final Look of Dashboard](images/finallook.PNG)
+
+</center>
 
 # e)
 
@@ -542,11 +608,15 @@ This is to generate the correct upper 95% level according to the type of respons
 
 2) **Females are significantly more worried than males about the potential side effects of a vaccine**. Taking 30% as a reference point, in 11 out of the 14 countries, more than 30% of females indicated strongly agree. On the contrary, only in 2 out of the 14 countries did more than 30% of males indicate strongly agree. 
 
+This is in line with scientific evidence that females are generally more risk-averse than males.
+
 ![](images/femaleworry.PNG)
 
 ![](images/maleworry.PNG)
 
 3) Generally the **elderly are more worried than the young about getting COVID19**. Taking the elderly as those of above 60 years old, and the young as those up to 30 years old. Using 20% as a reference point, in 11 out of 14 countries, more than 20% of the elderly indicated strongly agreed that they are worried about getting COVID19. On the contrary, only in 4 out of the 14 countries did more than 20% of youth strongly agreed that they are worried about getting COVID19.
+
+This is probably due to the fact that there has been published statistical evidence that the elderly are more susceptible to being more adversely affected and have a higher death rate when hit by COVID19 as compared to the young, who have a much higher and faster recovery rate.
 
 ![](images/elderworry.PNG)
 ![](images/youthworry.PNG)
