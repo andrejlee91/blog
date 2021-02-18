@@ -537,7 +537,7 @@ This is to generate the correct upper 95% level according to the type of respons
 
 <center>
 
-![](images/dashboardfirst.PNG){width=90%}
+![](images/dashboardfirst.PNG){width=100%}
 
 </center>
 
@@ -585,7 +585,7 @@ This is to generate the correct upper 95% level according to the type of respons
 
 <center>
 
-![Fig 44: Change title for Dot Plot Chart](images/dottitle.PNG)
+![Fig 44: Change title for Dot Plot Chart](images/dottitle.PNG){width=100%}
 
 </center>
 
