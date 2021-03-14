@@ -1,0 +1,90 @@
+---
+title: "Dataviz Makeover 3"
+description: |
+  A short description of the post.
+author:
+  - name: Andre Lee
+    url: {}
+date: 03-13-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth : 3
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Given Visualization
+
+![](images/given.PNG)
+
+## Clarity
+
+```{r}
+library(knitr)
+library(kableExtra)
+df <- data.frame(sn = c("1", "2","3","4"), 
+                 comment = (c("Armed Conflict Event by Type serves the purpose of comparing how counts of each Event Type changes over the years. 
+
+However, it is difficult to compare trends and counts over time across Event Types since each have their own charts of different y-axis scales.",
+"All the points are of the same size and only differentiated by colour via the Event Types. In doing so, the visualisation fails to portray the severity of the different armed conflict events, which can be measured by number of fatalities in each event.",
+  "For the y-axis label of Armed Conflict Event by Type, ‘Count of Sheet1’  does not provide any meaning.",
+  "x-axis label of Armed Conflict Event by Type is shown as ‘Event Date’. This is misleading since it is merely Event Year.")), 
+    suggestion = (c("Reorganise Armed Conflict Event by Type into a single chart comprising all the Event Types sharing one scale.",
+                    "Scale the size of each point by the number of fatalities. This allows the viewer to visualize the severity of each event.",
+"Rename to ‘Count of Event’",
+ "Change to ‘Event Year’")))
+
+kable(df, col.names = c("s/n", "Comment", "Suggestion"), escape = F) %>%
+  kable_styling(latex_options = "hold_position") %>%
+  column_spec(1, bold = T) %>%
+   column_spec(2, width = "30cm") %>%
+  column_spec(3, width = "13cm") %>%
+  row_spec(0, align = "c", background = "gray")
+```
+
+
+## Aesthetics
+
+
+```{r}
+library(knitr)
+library(kableExtra)
+df <- data.frame(sn = c("1", "2","3"), 
+                 comment = (c("For the y-axis of Armed Conflict Event by Type, the data tends to extend beyond the y-axis tick labels’ upper and lower bounds.",
+  "For the x-axis tick label of Armed Conflict Event by Type, the final tick label ‘2020’ is chopped off. This is aesthetically unpleasant.",
+  "For Armed Conflict Event by Type visualization, the height of the visualisation is quite high and all 6 component charts use the same x-axis at the bottom. As it is, it is hard to match the points to the x-axis especially for the component charts at the top such as for Event Type ‘Battles’.")), 
+    suggestion = (c("Keep the data points within the upper and lower bounds of the y-axis tick labels’ upper and lower bounds", 
+"Adjust for all tick labels to be visible and none chopped off.’",
+ "Add in Gridlines to allow for easy visual matching of points to x-axis.")))
+
+kable(df, col.names = c("s/n", "Comment", "Suggestion"), escape = F) %>%
+  kable_styling(latex_options = "hold_position") %>%
+  column_spec(1, bold = T) %>%
+   column_spec(2, width = "30cm") %>%
+  column_spec(3, width = "13cm") %>%
+  row_spec(0, align = "c", background = "gray")
+```
+
+## Interactivity
+
+```{r}
+library(knitr)
+library(kableExtra)
+df <- data.frame(sn = c("1", "2"), 
+                 comment = (c("There is limited interactivity for the filtering of country. The given visualization only allows for Single Value filtering of country. This disallows the viewer from visually comparing 2 countries by selecting 2 of them at one go, for example. ",
+  "There is no interactivity option for filtering based on Event Type. For example, if viewer is only interested in viewing Battles in Myanmar, he/she is unable to do so and instead has to view all Event Types.")), 
+    suggestion = (c("Allow for Multiple Value Selection for Country", 
+"Allow for filtering of Event Type")))
+
+kable(df, col.names = c("s/n", "Comment", "Suggestion"), escape = F) %>%
+  kable_styling(latex_options = "hold_position") %>%
+  column_spec(1, bold = T) %>%
+   column_spec(2, width = "30cm") %>%
+  column_spec(3, width = "13cm") %>%
+  row_spec(0, align = "c", background = "gray")
+```
