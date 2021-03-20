@@ -485,7 +485,7 @@ Place the user-selectable filters (Year, Country and Event Type) in the middle.
 
 # Five major observations revealed
 
-## Observation 1:
+## Observation 1
 
 <center>
 
