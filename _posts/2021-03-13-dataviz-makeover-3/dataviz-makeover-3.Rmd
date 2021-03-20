@@ -1,7 +1,7 @@
 ---
 title: "Dataviz Makeover 3"
 description: |
-  A short description of the post.
+  A Data visualisation makeover of Armed Conflict events across South East Asia
 author:
   - name: Andre Lee
     url: {}
@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Given Visualization
 
-![](images/given.PNG)
+![](images/given1.PNG)
 
 ## Clarity
 
@@ -54,11 +54,14 @@ kable(df, col.names = c("s/n", "Comment", "Suggestion"), escape = F) %>%
 ```{r}
 library(knitr)
 library(kableExtra)
-df <- data.frame(sn = c("1", "2","3"), 
-                 comment = (c("For the y-axis of Armed Conflict Event by Type, the data tends to extend beyond the y-axis tick labels’ upper and lower bounds.",
+df <- data.frame(sn = c("5", "6","7"), 
+                 comment = (c("The colour of the lines in the line graphs for the different Event Types are all blue, which corresponds to the colour code of Event type ‘Battles’.
+
+This creates potential confusion.
+",
   "For the x-axis tick label of Armed Conflict Event by Type, the final tick label ‘2020’ is chopped off. This is aesthetically unpleasant.",
   "For Armed Conflict Event by Type visualization, the height of the visualisation is quite high and all 6 component charts use the same x-axis at the bottom. As it is, it is hard to match the points to the x-axis especially for the component charts at the top such as for Event Type ‘Battles’.")), 
-    suggestion = (c("Keep the data points within the upper and lower bounds of the y-axis tick labels’ upper and lower bounds", 
+    suggestion = (c("The colour of the lines should match the corresponding colour of the Event Type as represented in the legend.", 
 "Adjust for all tick labels to be visible and none chopped off.’",
  "Add in Gridlines to allow for easy visual matching of points to x-axis.")))
 
@@ -75,11 +78,14 @@ kable(df, col.names = c("s/n", "Comment", "Suggestion"), escape = F) %>%
 ```{r}
 library(knitr)
 library(kableExtra)
-df <- data.frame(sn = c("1", "2"), 
+df <- data.frame(sn = c("8", "9","10"), 
                  comment = (c("There is limited interactivity for the filtering of country. The given visualization only allows for Single Value filtering of country. This disallows the viewer from visually comparing 2 countries by selecting 2 of them at one go, for example. ",
-  "There is no interactivity option for filtering based on Event Type. For example, if viewer is only interested in viewing Battles in Myanmar, he/she is unable to do so and instead has to view all Event Types.")), 
+  "There is no interactivity option for filtering based on Event Type. For example, if viewer is only interested in viewing Battles in Myanmar, he/she is unable to do so and instead has to view all Event Types.",
+  "Viewer is unable to select specific years to view if he/she is interested in selected years other than 2015-2020, which is the default provided by existing visualisation.")
+  ), 
     suggestion = (c("Allow for Multiple Value Selection for Country", 
-"Allow for filtering of Event Type")))
+"Allow for filtering of Event Type",
+"Allow viewer to filter for Years.")))
 
 kable(df, col.names = c("s/n", "Comment", "Suggestion"), escape = F) %>%
   kable_styling(latex_options = "hold_position") %>%
@@ -88,3 +94,466 @@ kable(df, col.names = c("s/n", "Comment", "Suggestion"), escape = F) %>%
   column_spec(3, width = "13cm") %>%
   row_spec(0, align = "c", background = "gray")
 ```
+
+
+# Proposed alternative data visualisation and interactive techniques
+
+![](images/improvement.png)
+
+```{r}
+library(knitr)
+library(kableExtra)
+df <- data.frame(sn = c("1", "2","3","4","5","6"), 
+                 advantage = (c("Allowing for interactivity selection of Year, Country and Event Type provides the viewer with more options for selective viewing rather than a static view", 
+                              "Adding tooltip interactivity when viewer mouse over a point on the chart allows for more granular breakdown of counts by Country, allowing the viewer to glean greater depth of insights",
+                              "Combining all the Event Types on 1 single chart allows for easier viewing as compared to the original visualisation which was a panel of 6 charts sharing same axes.",
+                            "Scaling the size of each Armed Conflict event by the number of fatalities provides the viewer an additional piece of information about each event. This is an improvement over the original visualisation where each point is the same size and there is no information about severity of each event.",
+                            "Having a stacked Bar Chart showing the breakdown of fatalities by Event Type not only allows viewer to see which types of events account for the highest/lowest numbers of fatalities each year, but also allows viewer to see the trend of total fatalities over time.",
+                            "Having a Dual-axis Chart showing Count of Event Types and Fatalities by Country allows viewer to not only have a more granular overall breakdown of the event types by country but also through the synchronized axis see the relationship between event count and fatalities count for each country.")))
+
+kable(df, col.names = c("s/n", "Advantage"), escape = F) %>%
+  kable_styling(latex_options = "hold_position") %>%
+  column_spec(1, bold = T) %>%
+   column_spec(2, width = "30cm") %>%
+  row_spec(0, align = "c", background = "gray")
+```
+
+
+
+
+# Preparing the Visualisation
+
+The final visualisation product takes the form of a dashboard containing:
+1) Map showing points of Armed Conflict 
+2) Stacked Bar Chart showing Count of Fatalities by Event Type in each year
+3) Line Graph showing Total Counts of Armed Conflicts by Event Type
+4) A dual-axis chart showing Counts of Event Type by Country (Stacked Bar) and Total Fatalities by Country (Line Graph)
+
+## Map
+
+1) Import the ACLED data into Tableau
+
+2) Drag Longitude into columns and drag Latitude into rows. Map will first look as follows:
+
+<center>
+
+![Fig 1: Drag Longitude into columns and Latitude into rows'](images/initial.PNG)
+
+</center>
+
+3) Drag 'Event Type' to Color under the Marks tab.
+
+<center>
+
+![Fig 2: Drag 'Event Type' to Colour under Marks tab'](images/eventcolor.PNG)
+
+</center>
+
+4) Drag 'Event Id Cnty' to Detail under the Marks tab.
+
+<center>
+
+![Fig 3: Drag 'Event Id Cnty' to Detail under Marks tab'](images/eventdetail.PNG)
+
+</center>
+
+5) Drag 'Fatalities' to Size under the Marks tab.
+
+<center>
+
+![Fig 4: Drag 'Fatalities' to Size under Marks tab'](images/eventdetail.PNG)
+
+</center>
+
+6) Change Year Data Type from Continuous to Discrete
+
+<center>
+
+![Fig 5: Convert Year Data Type from Continuous to Discrete'](images/convertdiscrete.PNG)
+
+</center>
+
+
+7) Drag Year into Filters tab and select 2015 until 2020 as the default values initially.
+
+<center>
+
+![Fig 6: Drag Year into Filters tab and select 2015 until 2020 as the default values](images/filteryear.PNG)
+
+</center>
+
+8) Select Show Filter to allow for viewer to select the desired year(s)
+
+<center>
+
+![Fig 7: Show Filter for Year](images/showyearfilter.PNG)
+
+</center>
+
+9) Change filter type to Multiple Values (dropdown)
+
+<center>
+
+![Fig 8: Change the Filter Type to Multiple Values dropdown](images/selectyear_dropdown.PNG)
+
+</center>
+
+10) Drag Country into Filters tab and select 'Use all' values.
+
+<center>
+
+![Fig 9: Drag Country into Filters tab](images/filtercountry.PNG)
+
+</center>
+
+11) Select Show Filter to allow for viewer to select the desired country(s)
+
+<center>
+
+![Fig 10: Show Filter for Country](images/showcountryfilter.PNG)
+
+</center>
+
+12) Change Filter type to Multiple Values (dropdown)
+
+<center>
+
+![Fig 11: Change filter type to Multiple Values dropdown](images/selectcountry_dropdown.PNG)
+
+</center>
+
+
+13) Drag Event Type into Filters tab and select 'Use all' values.
+
+<center>
+
+![Fig 12: Drag Event Type into Filters tab](images/filtereventtype.PNG)
+
+</center>
+
+14) Select Show Filter to allow for viewer to select the desired Event Type(s)
+
+<center>
+
+![Fig 13: Show Filter for Event Type](images/showeventtypefilter.PNG)
+
+</center>
+
+15) Change filter type to Multiple Values (dropdown)
+
+<center>
+
+![Fig 14; change filter type to Multiple Values dropdown](images/selecteventtype_dropdown.PNG)
+
+</center>
+
+16) Drag Country into Tooltip so that can viewer can see the exact Country when hovering over a point to avoid confusion.
+
+<center>
+
+![Fig 15: Drag Country into Tooltip under Marks tab](images/countrytooltip.PNG)
+
+</center>
+
+17) Change Map title as follows:
+
+<center>
+
+![Fig 16: Set Map Title](images/maptitle.PNG)
+
+</center>
+
+
+18) Map will look as follows:
+
+<center>
+
+![Fig 17: Final product of Map](images/finalmap.PNG)
+
+</center>
+
+
+
+## Stacked Bar Chart
+
+1) Drag Year into columns and drag Fatalities into rows. Chart will first look as follows:
+
+<center>
+
+![Fig 18: Drag Year into columns and Fatalities into rows](images/initialstacked.PNG)
+
+</center>
+
+2) Drag 'Event Type' to Color under the Marks tab.
+
+<center>
+
+![Fig 19: Drag 'Event Type' to Color under Marks tab'](images/eventdetail.PNG)
+
+</center>
+
+3) Change Title as follows:
+
+<center>
+
+![Fig 20: Set Title of Stacked Bar Chart](images/stackedtitle.PNG)
+
+</center>
+
+4) Stacked Bar Chart will look as follows:
+
+<center>
+
+![Fig 21: Final product of Stacked Bar Chart](images/finalstacked.PNG)
+
+</center>
+
+### Stacked Bar Chart Tooltip - Horizontal Bar Chart
+
+We add a tooltip comprising a Horizontal Bar Chart showing the breakdown of Fatalities by Country when the viewer mouses over each component in the Stacked Bar Chart created above.
+
+1) Create a new worksheet and drag Fatalities into Columns and Country into Rows. A Horizontal Bar Chart is generated by default.
+
+<center>
+
+![Fig 22: Horizontal Bar Chart of Country against Fatalities](images/horizontalbar.PNG)
+
+</center>
+
+2) Go back to the Worksheet of the Stacked Bar Chart and edit the Tooltip of the Chart as follows:
+
+<center>
+
+![Fig 23: Incorporate Horizontal Bar Chart into tooltip of Stacked Bar Chart](images/hori_tooltip.PNG)
+
+</center>
+
+3) Final Stacked Bar Chart with Horizontal Bar Tooltip looks as follows as an example:
+
+<center>
+
+![Fig 24: Stacked Bar Chart with Horizontal Bar Tooltip](images/finalhori_tooltip.PNG)
+
+</center>
+
+## Line graph
+
+The next element to go into the final dashboard will be a Line Graph showing the Total Counts of Armed Conflicts by Event type over the Years.
+
+1) Drag Year into columns and drag Event Type into rows. 
+
+2) Change Measure of Event Type to Count
+
+<center>
+
+![Fig 25: Change Measure of Event Type to Count](images/eventtocount.PNG)
+
+</center>
+
+3) Drag 'Event Type' to Color under the Marks tab.
+
+4) Change y-axis to Logarithmic scale
+
+<center>
+
+![Fig 26: Change y-axis to Logarithmic Scale and uncheck 'Include zero'](images/logscale.PNG)
+
+</center>
+
+5) Final Line graph looks as follows:
+
+<center>
+
+![Fig 27: Final Line Graph'](images/finalline.PNG)
+
+</center>
+
+
+### Line Graph Tooltip - Horizontal Bar Chart
+
+We add a tooltip comprising a Horizontal Bar Chart showing the breakdown of Event Type by Country when the viewer mouses over each component in the Line Graph created above.
+
+1) Create a new worksheet and drag Event Id Cnty into Columns and Country into Rows. Change the Measure of Event Id Cnty to Count. A Horizontal Bar Chart is generated by default.
+
+<center>
+
+![Fig 28: Horizontal Bar Chart of Country against Fatalities](images/horizontalbar2.PNG)
+
+</center>
+
+2) Go back to the Worksheet of the Line Graph and edit the Tooltip of the Chart as follows:
+
+<center>
+
+![Fig 29: Incorporate Horizontal Bar Chart into tooltip of Line Graph](images/hori_tooltip2.PNG)
+
+</center>
+
+3) Show Mark Labels for the Horizontal Bar Chart
+
+<center>
+
+![Fig 30: Show Mark Labels](images/showmarklabels.PNG)
+
+</center>
+
+4) Final Line Graph with Horizontal Bar Tooltip looks as follows as an example:
+
+<center>
+
+![Fig 31: Line Graph with Horizontal Bar Tooltip](images/finalline_tooltip.PNG)
+
+</center>
+
+## Dual-axis chart 
+Showing Counts of Event Type by Country (Stacked Bar) and Total Fatalities by Country (Line Graph)
+
+1) Create a new worksheet and drag Country into Columns and Event Type into Rows. Change the Measure of Event Type to Count. A Vertical Bar Chart is generated by default.
+
+<center>
+
+![Fig 32: Vertical Bar Chart of Count of Event Type against Country](images/double_bar.PNG)
+
+</center>
+
+2) Drag Fatalities to the right side of the y-axis as shown below to create Dual Axis:
+
+<center>
+
+![Fig 33: Drag Fatlities to the right to form Dual Axis](images/drag.PNG)
+
+</center>
+
+Then change the Chart Type of Sum(Fatalities) to Line under Marks Tab
+
+<center>
+
+![Fig 34: Change Chart Type to Line](images/changetoline.PNG)
+
+</center>
+
+3) Drag Event type to the Color under the Marks Tab for the Stacked Bar Chart CNT(Event Type)
+
+<center>
+
+![Fig 35: Drag Event type to the Color under the Marks Tab for the Stacked Bar Chart CNT(Event Type)](images/drageventtype.PNG)
+
+</center>
+
+4) Change colour of the line of the Line Graph to black. 
+
+5) Show Labels for the Line Graph
+
+6) Final Dual-Axis Graph looks as follows:
+
+<center>
+
+![Fig 36: Dual-Axis Graph](images/finalduo.PNG)
+
+</center>
+
+
+## Dashboard
+
+1) Create a new Dashboard sheet and change size to Automatic.
+
+<center>
+
+![Fig 37: Change Dashboard Size to Automatic](images/dashboardsize.PNG)
+
+</center>
+
+2) Drag the 4 sheets containing the Map, Dual-Axis Chart, Stacked Bar Chart and the Line Graph to the dashboard. Arrange the map on the left and the other 3 charts on the right.
+
+Place the user-selectable filters (Year, Country and Event Type) in the middle.
+
+3) Switch on Animations to allow viewer to view changes in the visualisations when filter changes are applied
+
+<center>
+
+![Fig 38: Switch on Animations](images/animation.PNG)
+
+</center>
+
+4) Dashboard looks as follows:
+
+<center>
+
+![Fig 39: Dashboard](images/dashboard.PNG)
+
+</center>
+
+# Five major observations revealed
+
+## Observation 1:
+
+<center>
+
+![Fig 40: Philippines is the country with the densest occurrence of armed conflicts](images/first_obs.PNG)
+
+</center>
+
+Over the entire available time period of 2010-2020, Philippines is the country with the densest occurrence of armed conflicts. From the map, we can see that compared to the other countries, Philippines has the largest proportion of its land area having been covered with an occurrence of an armed conflict. 
+
+
+
+## Observation 2
+
+<center>
+
+![Fig 41: Violence against Civilians and Battles are the most fatal events across the board](images/second_obs.PNG)
+
+</center>
+
+From the map, we see that Violence against Civilians and Battles tend to result in higher fatalities, whereas other events have low or no fatalities. This is witnessed across the board generally and isn't just applicable to a specific country.
+
+
+
+## Observation 3
+
+<center>
+
+![Fig 42: The number of fatalities across South East Asia spiked significantly from 2015 to 2016 and continued to remain high after that](images/third_obs.PNG)
+
+</center>
+
+From 2010-2015, the total number of fatalities remained consistently below 2000 with a sideways trend. from 2015 to 2016, total fatalities suddenly spiked, also mainly due to a spike in Violence against Civilians events.
+
+<center>
+
+![Fig 43: Tooltip showing the rise in fatalities was mainly due to a spike in violence against Civilians in Philippines](images/third_obs_1.PNG)
+
+</center>
+
+From the interactive tooltip, we can see that the spike in Violence against Civilians in 2016 and beyond came mainly from Philippines. This is in line with Rodrigo Duterte getting elected as President in the 2016 Philippine presidential election. Upon getting elected, he carried out a crackdown on drugs where thousands of drug criminals have been killed since.
+
+## Observation 4
+
+<center>
+
+![Fig 44: Except for Explosions/Remote violence, the number of all other event types have each increased over the whole time frame.](images/fourth_obs.PNG)
+
+</center>
+
+
+From the line graph from 2010 to 2020, we see that the total counts of each Armed Conflict event type has been on an uptrend over the years. This uptrend is even more pronounced when we note that the y-axis is of a Logarithmic Scale. Explosions/Remote violence is the only exception to this trend.
+
+<center>
+
+![Fig 45: Except for Explosions/Remote violence, the number of all other event types have each increased over the whole time frame.](images/fourthobs.PNG)
+
+</center>
+
+Breaking this down to a country level,  the countries accounting for both the most number of Armed Conflict events as well as the most number of fatalities is Philippines, followed by Myanmar. On the flipside, Laos and Malaysia are the most peaceful countries, with a relative insignificant number of Armed Conflict events and fatalities.
+
+Although Thailand and Indonesia have a fairly significant number of Armed Conflict events, their fatality counts are proportionately lower compared to Myanmar and Philippines, suggesting that the nature of the Armed conflicts in Indonesia and Thailand are less violent and controlled.
+
+## Observation 5
+
+<center>
+
+![Fig 46: Although the number of protests per year in South East Asia have been on an upward trend over the time period, fatalities per year have not increased accordingly.](images/fifth_obs.PNG)
+
+</center>
+
+The total number of protests per year in South East Asia has been on a steady upward trend since 2010, but yearly fatalities has not increased significantly. This suggests that although protesters are becoming more vocal and making their presence/opinion known, most protests in the region are fortunately mostly of a civilised non-violent nature.
