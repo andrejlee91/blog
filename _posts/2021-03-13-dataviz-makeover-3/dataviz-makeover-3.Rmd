@@ -62,7 +62,7 @@ This creates potential confusion.
   "For the x-axis tick label of Armed Conflict Event by Type, the final tick label ‘2020’ is chopped off. This is aesthetically unpleasant.",
   "For Armed Conflict Event by Type visualization, the height of the visualisation is quite high and all 6 component charts use the same x-axis at the bottom. As it is, it is hard to match the points to the x-axis especially for the component charts at the top such as for Event Type ‘Battles’.")), 
     suggestion = (c("The colour of the lines should match the corresponding colour of the Event Type as represented in the legend.", 
-"Adjust for all tick labels to be visible and none chopped off.’",
+"Adjust for all tick labels to be visible and none chopped off.",
  "Add in Gridlines to allow for easy visual matching of points to x-axis.")))
 
 kable(df, col.names = c("s/n", "Comment", "Suggestion"), escape = F) %>%
@@ -125,8 +125,11 @@ kable(df, col.names = c("s/n", "Advantage"), escape = F) %>%
 
 The final visualisation product takes the form of a dashboard containing:
 1) Map showing points of Armed Conflict 
+
 2) Stacked Bar Chart showing Count of Fatalities by Event Type in each year
+
 3) Line Graph showing Total Counts of Armed Conflicts by Event Type
+
 4) A dual-axis chart showing Counts of Event Type by Country (Stacked Bar) and Total Fatalities by Country (Line Graph)
 
 ## Map
@@ -243,7 +246,7 @@ The final visualisation product takes the form of a dashboard containing:
 
 <center>
 
-![Fig 14; change filter type to Multiple Values dropdown](images/selecteventtype_dropdown.PNG)
+![Fig 14: change filter type to Multiple Values dropdown](images/selecteventtype_dropdown.PNG)
 
 </center>
 
@@ -364,7 +367,7 @@ The next element to go into the final dashboard will be a Line Graph showing the
 
 <center>
 
-![Fig 27: Final Line Graph'](images/finalline.PNG)
+![Fig 27: Final Line Graph](images/finalline.PNG)
 
 </center>
 
